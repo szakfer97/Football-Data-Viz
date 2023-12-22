@@ -7,16 +7,11 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('pizza_data.csv')
 df['Player'] = df['Player'].str.split('\\', expand=True)[0]
-df.head()
 df = df.loc[(df['Pos'] == 'DF') & (df['90s'] > 10)]
-df.head()
 df = df.drop(['Rk', 'Nation', 'Pos', 'Squad',
              'Age', 'Born'], axis=1).reset_index()
-df.head()
 params = list(df.columns)
-params
 params = params[2:]
-params
 name = input('Enter the name: ')
 player = df.loc[df['Player'] == name].reset_index()
 player = list(player.loc[0])
@@ -84,4 +79,4 @@ fig.text(
     ha="right"
 )
 
-plt.savefig('pizza.png', dpi=500, bbox_inches='tight')
+plt.savefig('pizza_plot.png', dpi=500, bbox_inches='tight')
