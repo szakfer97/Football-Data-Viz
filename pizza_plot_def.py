@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('pizza_data.csv')
 df['Player'] = df['Player'].str.split('\\', expand=True)[0]
-df = df.loc[(df['Pos'] == 'DF') & (df['90s'] > 10)]
+df = df.loc[(df['Pos'] == 'DF') & (df['90s'] > 5)]
 df = df.drop(['Rk', 'Nation', 'Pos', 'Squad',
              'Age', 'Born'], axis=1).reset_index()
 params = list(df.columns)
@@ -65,7 +65,7 @@ fig.text(
 
 fig.text(
     0.515, 0.942,
-    "Per 90 Percentile Rank vs Premier League Defenders | 2020-21",
+    "Per 90 Percentile Rank vs. Premier League defenders | 2020-21",
     size=15,
     ha="center", color="#000000"
 )
